@@ -1,0 +1,21 @@
+.overlay-container {
+  position: relative;
+}
+
+.overlay-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  /* Initial state: fully transparent */
+  transition: background-color 0.3s ease;
+  /* Transition effect for smooth change */
+}
+
+.overlay-container:hover::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* On hover: semi-transparent black overlay */
+}

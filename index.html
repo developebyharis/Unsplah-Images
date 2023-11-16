@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <title>Unsplah Images</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="search pt-5 flex justify-center">
+        <input
+          type="search"
+          id="searchInput"
+          class="border outline-none border-zinc-900 text-left px-7 py-2 rounded-full"
+          placeholder="Search Image.."
+        />
+        <button
+          onclick="searchImage()"
+          class="bg-black rounded-full px-4 mx-1 text-white"
+        >
+          Search
+        </button>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 p-5 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+        id="app"
+      ></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
