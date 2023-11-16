@@ -1,5 +1,14 @@
 .overlay-container {
   position: relative;
+  width: 100%; /* Set the desired width */
+  height: 300px; /* Set the desired height */
+}
+
+
+.overlay-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .overlay-container::before {
@@ -18,4 +27,23 @@
 .overlay-container:hover::before {
   background-color: rgba(0, 0, 0, 0.5);
   /* On hover: semi-transparent black overlay */
+}
+
+
+/* Default Button Style */
+.pageBtn {
+  background-color: #3490dcb2; /* Default background color */
+  color: #ffffff; /* Default text color */
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover Style */
+.pageBtn:hover {
+  background-color: #2779bd; /* Color when hovered over */
+}
+
+/* Active Style */
+.pageBtn.active {
+  background-color: #1b90f0 /* Color when clicked */
 }
