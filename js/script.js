@@ -1,6 +1,17 @@
 const apiKey = "QMkA5-MaRqXGO-QGDsfIcjYmr8jsLcrp8QV7Stna2o8";
 const apiUrl = "https://api.unsplash.com/photos";
 const searchUrl = "https://api.unsplash.com/search/photos";
+const tags = [
+  "mountain",
+  "wildlife",
+  "abstract",
+  "technology",
+  "fashion",
+  "food",
+  "adventure",
+  "travel",
+  "sunset",
+];
 
 let currentPage = 1;
 let imagesPerPage = 12;
@@ -48,6 +59,24 @@ async function searchImage() {
   renderImages(combinedImages, imagesPerPage, currentPage);
 }
 
+function renderTags() {
+  const tagsContainer = document.getElementById("tagContainerInner");
+  tagsContainer.innerHTML = "";
+
+  tags.forEach((tag) => {
+    tagsContainer.innerHTML += `<button class="tag bg-black text-white px-2 font-medium py-[2px] rounded-lg" onclick="searchImageByTag('${tag}')">${tag}</button>`;
+  });
+}
+
+async function searchImageByTag(tag) {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.value = tag;
+  await searchImage();
+}
+
+// Call renderTags after defining the tags array
+renderTags();
+
 async function renderImages(images, perPage, page) {
   try {
     let html = "";
@@ -77,14 +106,15 @@ function renderPagination(totalImages) {
   const totalPages = Math.ceil(totalImages / imagesPerPage);
   let paginationHtml = "";
 
+  for (let i = 1; i <= totalPages; i++) {
+    const isActive = i === currentPage;
+    paginationHtml += `<button class="rounded-lg pageBtn px-4 py-2 text-white mx-1 ${
+      isActive ? "active" : ""
+    }" onclick="changePage(${i})">${i}</button>`;
+  }
 
-for (let i = 1; i <= totalPages; i++) {
-  const isActive = i === currentPage;
-  paginationHtml += `<button class="rounded-lg pageBtn px-4 py-2 text-white mx-1 ${isActive ? 'active': ''}" onclick="changePage(${i})">${i}</button>`;
-}
-
-let paginationContainer = document.getElementById("pagination");
-paginationContainer.innerHTML = paginationHtml;
+  let paginationContainer = document.getElementById("pagination");
+  paginationContainer.innerHTML = paginationHtml;
 }
 function changePage(page) {
   currentPage = page;
@@ -100,7 +130,6 @@ function changePage(page) {
     });
   }
 }
-
 
 async function getDefaultImages() {
   const storedDefaultImages = localStorage.getItem("defaultImages");

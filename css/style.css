@@ -1,9 +1,10 @@
 .overlay-container {
   position: relative;
-  width: 100%; /* Set the desired width */
-  height: 300px; /* Set the desired height */
+  width: 100%;
+  /* Set the desired width */
+  height: 300px;
+  /* Set the desired height */
 }
-
 
 .overlay-container img {
   width: 100%;
@@ -32,18 +33,38 @@
 
 /* Default Button Style */
 .pageBtn {
-  background-color: #3490dcb2; /* Default background color */
-  color: #ffffff; /* Default text color */
+  background-color: #3490dcb2;
+  /* Default background color */
+  color: #ffffff;
+  /* Default text color */
   border: none;
   cursor: pointer;
 }
 
 /* Hover Style */
 .pageBtn:hover {
-  background-color: #2779bd; /* Color when hovered over */
+  background-color: #2779bd;
+  /* Color when hovered over */
 }
 
 /* Active Style */
 .pageBtn.active {
-  background-color: #1b90f0 /* Color when clicked */
+  background-color: #1b90f0
+    /* Color when clicked */
+}
+
+#tagContainer {
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+
+#tagContainer::-webkit-scrollbar {
+  background-color: #fff;
+
+}
+
+#tagContainerInner {
+  display: flex;
+  flex-wrap: nowrap;
 }
