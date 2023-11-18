@@ -12,12 +12,19 @@
 
 <body>
   <div class="content">
-    <div class="search pt-5 flex justify-center">
-      <input type="search" id="searchInput" class="border outline-none border-zinc-900 text-left px-7 py-2 rounded-full"
-        placeholder="Search Image.." />
+    <div class="search pt-5 flex ">
+      <input type="search" id="searchInput"
+        class="justify-center lg:ml-5 ml-2 border outline-none border-zinc-900 text-left md:px-4 lg:px-6 py-2 rounded-full w-2/3 md:w-1/2 lg:w-1/3 max-w-sm md:max-w-md lg:max-w-lg"
+        placeholder="Search..." />
       <button onclick="searchImage()" class="bg-black rounded-full px-4 mx-1 text-white">
         Search
       </button>
+
+      <div class=" ml-auto" id="authContainer">
+
+        <!-- Other content for authContainer goes here -->
+      </div>
+
     </div>
     <div class="flex space-x-2 " id="tagContainer">
       <!-- The inner container for scrolling -->
@@ -29,8 +36,10 @@
     </div>
     <div id="pagination" class=" pb-12 text-white text-center"></div>
   </div>
-
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/auth.js" type="module"></script>
 </body>
 
 </html>
