@@ -64,7 +64,7 @@ function renderTags() {
   tagsContainer.innerHTML = "";
 
   tags.forEach((tag) => {
-    tagsContainer.innerHTML += `<button class="tag bg-black text-white px-2 font-medium py-[2px] rounded-lg" onclick="searchImageByTag('${tag}')">${tag}</button>`;
+    tagsContainer.innerHTML += `<button class="tag bg-gray-200 text-back px-2 font-medium py-[2px] rounded-lg" onclick="searchImageByTag('${tag}')">${tag}</button>`;
   });
 }
 
