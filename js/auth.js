@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                           <h2>Welcome, <span class="font-bold">${user.displayName}</span></h2>
                       </div>
                       <div class="sub-item">
-                          <button class="text-lg font-medium text-black" id="logout">Logout</button>
+                          <button class="bg-red-500 hover:bg-red-700 w-full items-center justify-center text-center rounded-full px-2 text-white py-2 flex display-inline" id="logout">Logout</button>
                       </div>
                   </div>
               </div>
