@@ -16,9 +16,9 @@ const tags = [
 let currentPage = 1;
 let imagesPerPage = 12;
 
-async function getImages() {
+async function getImages(page = 1) {
   try {
-    let res = await fetch(`${apiUrl}?client_id=${apiKey}`);
+    let res = await fetch(`${apiUrl}?client_id=${apiKey}&page=${page}`);
     return await res.json();
   } catch (error) {
     console.error(error);
@@ -26,7 +26,7 @@ async function getImages() {
 }
 
 async function saveDefaultImages() {
-  const defaultImages = await getImages(1);
+  const defaultImages = await getImages();
   localStorage.setItem("defaultImages", JSON.stringify(defaultImages));
   return defaultImages;
 }
@@ -53,18 +53,31 @@ async function searchImage() {
 
   const defaultImages = await getDefaultImages();
   const combinedImages = [...searchImages, ...defaultImages];
+  if(searchTerm && !tags.includes(searchTerm)) {
+    tags.push(searchTerm);
+  };
+  localStorage.setItem("tags", JSON.stringify(tags));
   localStorage.setItem("searchTerm", searchTerm);
   localStorage.setItem("combinedImages", JSON.stringify(combinedImages));
-
+  renderTags();
   renderImages(combinedImages, imagesPerPage, currentPage);
 }
 
 function renderTags() {
   const tagsContainer = document.getElementById("tagContainerInner");
   tagsContainer.innerHTML = "";
+  const storedTags = localStorage.getItem("tags");
 
-  tags.forEach((tag) => {
-    tagsContainer.innerHTML += `<button class="tag bg-gray-200 text-back px-2 font-medium py-[2px] rounded-lg" onclick="searchImageByTag('${tag}')">${tag}</button>`;
+  // Declare tagsArray outside the if statement
+  let tagsArray = [];
+
+  if (storedTags) {
+    // Parse the storedTags string into an array
+    tagsArray = JSON.parse(storedTags);
+  }
+tagsArray.forEach((tag) => {
+  const formatedTags = tag.charAt(0).toUpperCase() + tag.slice(1).replace(/\s/g, '');
+    tagsContainer.innerHTML += `<button class="tag bg-gray-200 text-back px-2 font-medium py-[2px] rounded-lg" onclick="searchImageByTag('${formatedTags}')">${formatedTags}</button>`;
   });
 }
 
