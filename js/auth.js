@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
                       class=" profile mx-2 w-[40px] h-[40px] rounded-full cursor-pointer outline outline-offset-2 outline-2 outline-blue-500"/> 
                   <div id="userInfo" class="hidden">
                       <div class="sub-item">
-                          <h2>Welcome, <span class="font-bold">${user.displayName}</span></h2>
+                          <h4>Welcome, <span class="font-bold">${user.displayName}</span></h4>
                       </div>
                       <div class="sub-item">
-                          <button class="bg-red-500 hover:bg-red-700 w-full items-center justify-center text-center rounded-full px-2 text-white py-2 flex display-inline" id="logout">Logout</button>
+                          <button class="bg-red-500 hover:bg-red-700 w-full items-center justify-center text-center rounded-full px-2 text-white py-2" id="logout">Logout</button>
                       </div>
                   </div>
               </div>
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       class="profile mx-2 w-[40px] h-[40px] rounded-full cursor-pointer"/> 
                   <div id="userInfo" class="hidden">
                       <div class="sub-item">
-                          <button id="login" class="bg-blue-500 hover:bg-blue-700 w-full items-center justify-center text-center rounded-full px-2 text-white py-2 flex display-inline">Sign In</button>
+                          <button id="login" class="bg-blue-500 hover:bg-blue-700 w-full items-center justify-center text-center rounded-full px-2 text-white py-2">Sign In</button>
                       </div>
                   </div>
               </div>
